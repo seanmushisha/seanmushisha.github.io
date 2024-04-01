@@ -1,11 +1,11 @@
-/* Apply styles to the body element */
+/* Apply styles to the body */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0; /* Light gray background */
+    font-family: Arial, sans-serif; /* Use Arial font for better readability */
+    background-color: #f9f9f9; /* Light gray background */
+    color: #333; /* Dark gray text */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
 }
-
 
 /* Apply styles to the header */
 header {
@@ -21,50 +21,50 @@ header h1 {
     font-size: 24px; /* Increase font size */
 }
 
-
 /* Apply styles to the main content */
 main {
     padding: 20px;
 }
 
-/* Apply styles to headings */
-h1, h2 {
-    color: #333; /* Dark gray text */
+/* Apply styles to the section */
+section {
+    margin-bottom: 20px;
 }
 
-/* Apply styles to paragraphs */
-p {
-    color: #666; /* Gray text */
-    line-height: 1.5; /* Increase line spacing */
+/* Apply styles to the section description */
+.description {
+    background-color: #fff; /* White background */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow effect */
 }
 
-/* Apply styles to action section */
+/* Apply styles to the section action */
 .action {
-    margin-top: 20px;
     text-align: center;
 }
 
-/* Apply styles to button */
+/* Apply styles to the button */
 button {
-    padding: 10px 20px;
     background-color: #007bff; /* Blue button */
     color: #fff; /* White text */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    padding: 10px 20px; /* Add padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Add cursor pointer */
+    transition: background-color 0.3s; /* Smooth transition effect */
 }
 
-/* Apply hover effect to button */
+/* Change button color on hover */
 button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3; /* Darker blue */
 }
 
-/* Apply styles to footer */
+/* Apply styles to the footer */
 footer {
     background-color: #333; /* Dark gray background */
     color: #fff; /* White text */
-    padding: 10px 20px;
+    padding: 20px;
     text-align: center;
 }
 
