@@ -19,9 +19,15 @@
         .task-list {
             margin-top: 20px;
             text-align: left;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .task-list-item {
             margin-bottom: 10px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
         }
         .buttons {
             margin-top: 20px;
@@ -41,13 +47,13 @@
         <input type="text" id="taskInput" placeholder="Enter task...">
         <button id="addTaskButton">Add Task</button>
     </div>
-    <div class="task-list" id="taskList">
-        <!-- Task list will be displayed here -->
-    </div>
     <div class="buttons">
         <button id="startButton">Start</button>
         <button id="stopButton">Stop</button>
         <button id="resetButton">Reset</button>
+    </div>
+    <div class="task-list" id="taskList">
+        <!-- Task list will be displayed here -->
     </div>
 
     <script>
