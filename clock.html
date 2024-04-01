@@ -66,11 +66,8 @@
     </div>
 
     <script>
-        let workDuration = localStorage.getItem('workDuration') || 25;
-        let shortBreakDuration = localStorage.getItem('shortBreakDuration') || 5;
-        let longBreakDuration = localStorage.getItem('longBreakDuration') || 30;
-
-        let minutes = workDuration;
+        // Your JavaScript code here
+        let minutes = 25;
         let seconds = 0;
         let timerInterval;
         const timerDisplay = document.getElementById('timer');
@@ -104,7 +101,7 @@
 
         function resetTimer() {
             clearInterval(timerInterval);
-            minutes = workDuration;
+            minutes = 25;
             seconds = 0;
             updateTimerDisplay();
         }
@@ -150,3 +147,4 @@
     </script>
 </body>
 </html>
+
