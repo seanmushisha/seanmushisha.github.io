@@ -1,1 +1,62 @@
+/* Apply styles to the body element */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Light gray background */
+}
+
+/* Apply styles to the header */
+header {
+    background-color: #333; /* Dark gray background */
+    color: #fff; /* White text */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Apply styles to the main content */
+main {
+    padding: 20px;
+}
+
+/* Apply styles to headings */
+h1, h2 {
+    color: #333; /* Dark gray text */
+}
+
+/* Apply styles to paragraphs */
+p {
+    color: #666; /* Gray text */
+    line-height: 1.5; /* Increase line spacing */
+}
+
+/* Apply styles to action section */
+.action {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Apply styles to button */
+button {
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue button */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Apply hover effect to button */
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Apply styles to footer */
+footer {
+    background-color: #333; /* Dark gray background */
+    color: #fff; /* White text */
+    padding: 10px 20px;
+    text-align: center;
+}
 
