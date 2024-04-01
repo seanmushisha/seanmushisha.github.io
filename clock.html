@@ -39,6 +39,10 @@
     <div class="task-list" id="taskList">
         <!-- Task list will be displayed here -->
     </div>
+    <button onclick="startTimer()">Start</button>
+    <button onclick="stopTimer()">Stop</button>
+    <button onclick="resetTimer()">Reset</button>
+    <button onclick="addTask()">Add Task</button>
 
     <script>
         let minutes = 25;
@@ -99,7 +103,29 @@
             }, 1000);
         }
 
-        startTimer();
+        function stopTimer() {
+            clearInterval(timerInterval);
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            stage = 1;
+            minutes = 25;
+            seconds = 0;
+            updateTimerDisplay();
+            updateStageDisplay();
+        }
+
+        function addTask() {
+            const task = prompt("Enter task:");
+            if (task) {
+                const taskListItem = document.createElement('div');
+                taskListItem.textContent = task;
+                taskListItem.className = 'task-list-item';
+                taskList.appendChild(taskListItem);
+            }
+        }
+
         updateStageDisplay();
     </script>
 </body>
