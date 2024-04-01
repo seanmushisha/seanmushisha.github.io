@@ -3,156 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pomodoro Timer with Tasks</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        .timer {
-            font-size: 36px;
-            margin-top: 50px;
-        }
-        .stage {
-            font-size: 24px;
-            margin-top: 20px;
-        }
-        .task-list {
-            margin-top: 20px;
-            text-align: left;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .task-list-item {
-            margin-bottom: 10px;
-            background-color: #f9f9f9;
-            padding: 10px;
-            border-radius: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-    </style>
+    <title>TimerZen</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file for styling -->
 </head>
 <body>
-    <h1>Pomodoro Timer</h1>
-    <div class="timer" id="timer">25:00</div>
-    <div class="stage" id="stage">Set a timer for 25 minutes.</div>
-    <div class="task-list" id="taskList">
-        <!-- Task list will be displayed here -->
-    </div>
-    <button onclick="startTimer()">Start</button>
-    <button onclick="stopTimer()">Stop</button>
-    <button onclick="resetTimer()">Reset</button>
-    <button onclick="addTask()">Add Task</button>
-
-    <script>
-        let minutes = 25;
-        let seconds = 0;
-        let timerInterval;
-        let stage = 1;
-        const timerDisplay = document.getElementById('timer');
-        const stageDisplay = document.getElementById('stage');
-        const taskList = document.getElementById('taskList');
-
-        function updateTimerDisplay() {
-            timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        }
-
-        function updateStageDisplay() {
-            if (stage <= 4) {
-                stageDisplay.textContent = `Stage ${stage}: `;
-                if (stage % 2 !== 0) {
-                    stageDisplay.textContent += "Work on a task with no distractions.";
-                } else if (stage < 8) {
-                    stageDisplay.textContent += "Take a 5-minute break.";
-                } else {
-                    stageDisplay.textContent += "Take a longer 30-minute break and start again.";
-                }
-            }
-        }
-
-        function startTimer() {
-            timerInterval = setInterval(() => {
-                if (minutes === 0 && seconds === 0) {
-                    clearInterval(timerInterval);
-                    if (stage % 2 !== 0) {
-                        stage++;
-                        minutes = 5;
-                    } else if (stage < 8) {
-                        minutes = 25;
-                    } else {
-                        stage = 1;
-                        minutes = 30;
-                    }
-                    seconds = 0;
-                    updateStageDisplay();
-                } else if (minutes === 30 && seconds === 0) {
-                    clearInterval(timerInterval);
-                    stage = 1;
-                    minutes = 25;
-                    seconds = 0;
-                    updateStageDisplay();
-                } else {
-                    if (seconds === 0) {
-                        minutes--;
-                        seconds = 59;
-                    } else {
-                        seconds--;
-                    }
-                }
-                updateTimerDisplay();
-            }, 1000);
-        }
-
-        function stopTimer() {
-            clearInterval(timerInterval);
-        }
-
-        function resetTimer() {
-            clearInterval(timerInterval);
-            stage = 1;
-            minutes = 25;
-            seconds = 0;
-            updateTimerDisplay();
-            updateStageDisplay();
-        }
-
-        function addTask() {
-            const task = prompt("Enter task:");
-            if (task) {
-                const taskListItem = document.createElement('div');
-                const taskText = document.createElement('span');
-                const editButton = document.createElement('button');
-                const deleteButton = document.createElement('button');
-
-                taskText.textContent = task;
-                editButton.textContent = "Edit";
-                deleteButton.textContent = "Delete";
-
-                editButton.onclick = function() {
-                    const newTask = prompt("Edit task:", taskText.textContent);
-                    if (newTask) {
-                        taskText.textContent = newTask;
-                    }
-                };
-
-                deleteButton.onclick = function() {
-                    taskListItem.remove();
-                };
-
-                taskListItem.className = 'task-list-item';
-                taskListItem.appendChild(taskText);
-                taskListItem.appendChild(editButton);
-                taskListItem.appendChild(deleteButton);
-
-                taskList.appendChild(taskListItem);
-            }
-        }
-
-        updateStageDisplay();
-    </script>
+    <header>
+        <h1>Welcome to the TimerZen App</h1>
+    </header>
+    <main>
+        <section class="description">
+            <h2>Boost Your Productivity</h2>
+            <p>The Pomodoro Technique is a time management method that uses a timer to break work into intervals, traditionally 25 minutes in length, separated by short breaks. It's a great way to stay focused and increase productivity.</p>
+            <p>The original technique has six steps:</p>
+            <ol>
+                <li>Decide on the task to be done.</li>
+                <li>Set the Pomodoro timer (typically for 25 minutes).</li>
+                <li>Work on the task.</li>
+                <li>End work when the timer rings and take a short break (typically 5–10 minutes).</li>
+                <li>Go back to Step 2 and repeat until you complete four pomodoros.</li>
+                <li>After four pomodoros are done, take a long break (typically 20 to 30 minutes) instead of a short break. Once the long break is finished, return to step 2.</li>
+            </ol>
+        </section>
+        <section class="action">
+            <h2>Get Started</h2>
+            <a href="clock.html">Go to Clock</a> <!-- Link to the clock.html file -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Pomodoro App</p>
+    </footer>
+    <script src="script.js"></script> <!-- Link to your JavaScript file for functionality -->
 </body>
 </html>
-
