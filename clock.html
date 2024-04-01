@@ -3,45 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clock</title>
+    <title>Pomodoro Timer</title>
     <style>
-        /* CSS styles */
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
+            text-align: center;
         }
-        #clock {
-            font-size: 48px;
+        .timer {
+            font-size: 36px;
+            margin-top: 50px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div id="clock"></div>
+    <h1>Pomodoro Timer</h1>
+    <div class="timer" id="timer">25:00</div>
+    <div class="buttons">
+        <button id="startButton">Start</button>
+        <button id="stopButton">Stop</button>
+        <button id="resetButton">Reset</button>
+    </div>
 
     <script>
-        // JavaScript code for the clock
-        function updateTime() {
-            let now = new Date();
-            let hours = now.getHours();
-            let minutes = now.getMinutes();
-            let seconds = now.getSeconds();
-            hours = hours < 10 ? '0' + hours : hours;
-            minutes = minutes < 10 ? '0' + minutes : minutes;
-            seconds = seconds < 10 ? '0' + seconds : seconds;
-            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+        // Initialize timer values
+        let minutes = 25;
+        let seconds = 0;
+        let timerInterval;
+        const timerDisplay = document.getElementById('timer');
+
+        // Function to update timer display
+        function updateTimerDisplay() {
+            timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         }
 
-        // Update the time every second
-        setInterval(updateTime, 1000);
+        // Function to start the timer
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                if (minutes === 0 && seconds === 0) {
+                    clearInterval(timerInterval);
+                    return;
+                }
+                if (seconds === 0) {
+                    minutes--;
+                    seconds = 59;
+                } else {
+                    seconds--;
+                }
+                updateTimerDisplay();
+            }, 1000);
+        }
 
-        // Initial call to display the time immediately
-        updateTime();
+        // Function to stop the timer
+        function stopTimer() {
+            clearInterval(timerInterval);
+        }
+
+        // Function to reset the timer
+        function resetTimer() {
+            clearInterval(timerInterval);
+            minutes = 25;
+            seconds = 0;
+            updateTimerDisplay();
+        }
+
+        // Event listeners for buttons
+        document.getElementById('startButton').addEventListener('click', startTimer);
+        document.getElementById('stopButton').addEventListener('click', stopTimer);
+        document.getElementById('resetButton').addEventListener('click', resetTimer);
+
+        // Initial update of timer display
+        updateTimerDisplay();
     </script>
 </body>
 </html>
-
