@@ -6,6 +6,7 @@ body {
     background-color: #f0f0f0; /* Light gray background */
 }
 
+
 /* Apply styles to the header */
 header {
     background-color: #333; /* Dark gray background */
@@ -13,6 +14,13 @@ header {
     padding: 20px;
     text-align: center;
 }
+
+/* Apply styles to the title */
+header h1 {
+    margin: 0; /* Remove default margin */
+    font-size: 24px; /* Increase font size */
+}
+
 
 /* Apply styles to the main content */
 main {
