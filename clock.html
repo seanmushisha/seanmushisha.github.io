@@ -51,6 +51,7 @@
 </head>
 <body>
     <h1>Pomodoro Timer with Tasks</h1>
+    <button id="settingsButton">Settings</button>
     <div class="timer" id="timer">25:00</div>
     <div class="task-input">
         <input type="text" id="taskInput" placeholder="Enter task...">
@@ -74,6 +75,7 @@
         const taskInput = document.getElementById('taskInput');
         const taskList = document.getElementById('taskList');
         const addTaskButton = document.getElementById('addTaskButton');
+        const settingsButton = document.getElementById('settingsButton');
 
         function updateTimerDisplay() {
             timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
@@ -131,6 +133,10 @@
             taskListItem.remove();
         }
 
+        settingsButton.addEventListener('click', () => {
+            window.location.href = 'settings.html'; // Redirect to settings page
+        });
+
         addTaskButton.addEventListener('click', addTask);
         document.getElementById('startButton').addEventListener('click', startTimer);
         document.getElementById('stopButton').addEventListener('click', stopTimer);
@@ -147,4 +153,3 @@
     </script>
 </body>
 </html>
-
