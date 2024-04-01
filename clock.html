@@ -28,6 +28,15 @@
             background-color: #f9f9f9;
             padding: 10px;
             border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .task-list-item input[type="text"] {
+            border: none;
+            background-color: transparent;
+            margin-right: 10px;
+            flex-grow: 1;
         }
         .buttons {
             margin-top: 20px;
@@ -101,16 +110,38 @@
             if (task !== '') {
                 const taskListItem = document.createElement('div');
                 taskListItem.classList.add('task-list-item');
-                taskListItem.textContent = task;
+                taskListItem.innerHTML = `
+                    <input type="text" value="${task}" readonly>
+                    <button class="editButton">Edit</button>
+                    <button class="completeButton">Complete</button>
+                `;
                 taskList.appendChild(taskListItem);
                 taskInput.value = '';
             }
+        }
+
+        function editTask(taskListItem) {
+            const input = taskListItem.querySelector('input[type="text"]');
+            input.removeAttribute('readonly');
+            input.focus();
+        }
+
+        function completeTask(taskListItem) {
+            taskListItem.remove();
         }
 
         addTaskButton.addEventListener('click', addTask);
         document.getElementById('startButton').addEventListener('click', startTimer);
         document.getElementById('stopButton').addEventListener('click', stopTimer);
         document.getElementById('resetButton').addEventListener('click', resetTimer);
+        taskList.addEventListener('click', (event) => {
+            const taskListItem = event.target.closest('.task-list-item');
+            if (event.target.classList.contains('editButton')) {
+                editTask(taskListItem);
+            } else if (event.target.classList.contains('completeButton')) {
+                completeTask(taskListItem);
+            }
+        });
         updateTimerDisplay();
     </script>
 </body>
