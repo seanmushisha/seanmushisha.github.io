@@ -27,28 +27,32 @@
         <section class="action">
             <h2>Get Started</h2>
             <button id="startButton">Start Timer</button> <!-- Button to start the Pomodoro timer -->
+            <button id="stopButton">Stop Timer</button> <!-- Button to stop the Pomodoro timer -->
+            <button id="resetButton">Reset Timer</button> <!-- Button to reset the Pomodoro timer -->
+            <button id="tasksButton">Tasks</button> <!-- Button to view tasks -->
         </section>
+        <!-- Settings Menu -->
+        <div class="settings-tab">
+            <button id="settingsButton">Settings</button>
+            <div id="settingsMenu" class="hidden">
+                <h2>Settings</h2>
+                <label for="workTime">Work Time (minutes):</label>
+                <input type="number" id="workTime" min="1" value="25">
+                <label for="shortBreakTime">Short Break Time (minutes):</label>
+                <input type="number" id="shortBreakTime" min="1" value="5">
+                <label for="longBreakTime">Long Break Time (minutes):</label>
+                <input type="number" id="longBreakTime" min="1" value="30">
+                <label for="theme">Theme:</label>
+                <select id="theme">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+            </div>
+        </div>
     </main>
     <footer>
-        <p>&copy; 2024 TimerZen App</p>
+        <p>&copy; 2024 Pomodoro App</p>
     </footer>
-    <div class="settings-tab">
-        <button id="settingsButton">Settings</button>
-        <div id="settingsMenu" class="hidden">
-            <h2>Settings</h2>
-            <label for="workTime">Work Time (minutes):</label>
-            <input type="number" id="workTime" min="1" value="25">
-            <label for="shortBreakTime">Short Break Time (minutes):</label>
-            <input type="number" id="shortBreakTime" min="1" value="5">
-            <label for="longBreakTime">Long Break Time (minutes):</label>
-            <input type="number" id="longBreakTime" min="1" value="30">
-            <label for="mode">Choose Mode:</label>
-            <select id="mode">
-                <option value="light">Light Mode</option>
-                <option value="dark">Dark Mode</option>
-            </select>
-        </div>
-    </div>
     <script src="script.js"></script> <!-- Link to your JavaScript file for functionality -->
 </body>
 </html>
