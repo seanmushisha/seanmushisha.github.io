@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pomodoro Timer</title>
+    <title>Pomodoro Timer with Tasks</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,6 +12,16 @@
         .timer {
             font-size: 36px;
             margin-top: 50px;
+        }
+        .task-input {
+            margin-top: 20px;
+        }
+        .task-list {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .task-list-item {
+            margin-bottom: 10px;
         }
         .buttons {
             margin-top: 20px;
@@ -25,8 +35,15 @@
     </style>
 </head>
 <body>
-    <h1>Pomodoro Timer</h1>
+    <h1>Pomodoro Timer with Tasks</h1>
     <div class="timer" id="timer">25:00</div>
+    <div class="task-input">
+        <input type="text" id="taskInput" placeholder="Enter task...">
+        <button id="addTaskButton">Add Task</button>
+    </div>
+    <div class="task-list" id="taskList">
+        <!-- Task list will be displayed here -->
+    </div>
     <div class="buttons">
         <button id="startButton">Start</button>
         <button id="stopButton">Stop</button>
@@ -34,18 +51,18 @@
     </div>
 
     <script>
-        // Initialize timer values
         let minutes = 25;
         let seconds = 0;
         let timerInterval;
         const timerDisplay = document.getElementById('timer');
+        const taskInput = document.getElementById('taskInput');
+        const taskList = document.getElementById('taskList');
+        const addTaskButton = document.getElementById('addTaskButton');
 
-        // Function to update timer display
         function updateTimerDisplay() {
             timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         }
 
-        // Function to start the timer
         function startTimer() {
             timerInterval = setInterval(() => {
                 if (minutes === 0 && seconds === 0) {
@@ -62,12 +79,10 @@
             }, 1000);
         }
 
-        // Function to stop the timer
         function stopTimer() {
             clearInterval(timerInterval);
         }
 
-        // Function to reset the timer
         function resetTimer() {
             clearInterval(timerInterval);
             minutes = 25;
@@ -75,12 +90,21 @@
             updateTimerDisplay();
         }
 
-        // Event listeners for buttons
+        function addTask() {
+            const task = taskInput.value.trim();
+            if (task !== '') {
+                const taskListItem = document.createElement('div');
+                taskListItem.classList.add('task-list-item');
+                taskListItem.textContent = task;
+                taskList.appendChild(taskListItem);
+                taskInput.value = '';
+            }
+        }
+
+        addTaskButton.addEventListener('click', addTask);
         document.getElementById('startButton').addEventListener('click', startTimer);
         document.getElementById('stopButton').addEventListener('click', stopTimer);
         document.getElementById('resetButton').addEventListener('click', resetTimer);
-
-        // Initial update of timer display
         updateTimerDisplay();
     </script>
 </body>
