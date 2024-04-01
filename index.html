@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file for styling -->
 </head>
 <body>
-    <header>
-        <h1>Welcome to the TimerZen App</h1>
-    </header>
+    <h1>Welcome to the TimerZen App</h1>
     <main>
         <section class="description">
             <h2>Boost Your Productivity</h2>
@@ -27,31 +25,17 @@
         <section class="action">
             <h2>Get Started</h2>
             <button id="startButton">Start Timer</button> <!-- Button to start the Pomodoro timer -->
-            <button id="stopButton">Stop Timer</button> <!-- Button to stop the Pomodoro timer -->
-            <button id="resetButton">Reset Timer</button> <!-- Button to reset the Pomodoro timer -->
-            <button id="tasksButton">Tasks</button> <!-- Button to view tasks -->
         </section>
-        <!-- Settings Menu -->
-        <div class="settings-tab">
-            <button id="settingsButton">Settings</button>
-            <div id="settingsMenu" class="hidden">
-                <h2>Settings</h2>
-                <label for="workTime">Work Time (minutes):</label>
-                <input type="number" id="workTime" min="1" value="25">
-                <label for="shortBreakTime">Short Break Time (minutes):</label>
-                <input type="number" id="shortBreakTime" min="1" value="5">
-                <label for="longBreakTime">Long Break Time (minutes):</label>
-                <input type="number" id="longBreakTime" min="1" value="30">
-                <label for="theme">Theme:</label>
-                <select id="theme">
-                    <option value="light">Light</option>
-                    <option value="dark">Dark</option>
-                </select>
-            </div>
-        </div>
+        <section class="comment">
+            <h2>Share Your Experience</h2>
+            <form id="commentForm" action="mailto:mushisha23@gmail.com" method="post" enctype="text/plain">
+                <textarea name="comment" id="comment" cols="30" rows="5" placeholder="Write your comment here..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
     </main>
     <footer>
-        <p>&copy; 2024 Pomodoro App</p>
+        <p>&copy; 2024 TimerZen App</p>
     </footer>
     <script src="script.js"></script> <!-- Link to your JavaScript file for functionality -->
 </body>
