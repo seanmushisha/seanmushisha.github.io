@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file for styling -->
 </head>
 <body>
-    <header>
-        <h1>Welcome to the TimerZen App</h1>
-    </header>
+    <h1>Welcome to the TimerZen App</h1>
     <main>
         <section class="description">
             <h2>Boost Your Productivity</h2>
@@ -26,11 +24,18 @@
         </section>
         <section class="action">
             <h2>Get Started</h2>
-            <a href="clock.html">Go to Clock</a> <!-- Link to the clock.html file -->
+            <button id="startButton">Start Timer</button> <!-- Button to start the Pomodoro timer -->
+        </section>
+        <section class="comment">
+            <h2>Share Your Experience</h2>
+            <form id="commentForm" action="mailto:mushisha23@gmail.com" method="post" enctype="text/plain">
+                <textarea name="comment" id="comment" cols="30" rows="5" placeholder="Write your comment here..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 Pomodoro App</p>
+        <p>&copy; 2024 TimerZen App</p>
     </footer>
     <script src="script.js"></script> <!-- Link to your JavaScript file for functionality -->
 </body>
