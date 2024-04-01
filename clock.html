@@ -29,6 +29,9 @@
             background-color: #f9f9f9;
             padding: 10px;
             border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
     </style>
 </head>
@@ -120,8 +123,30 @@
             const task = prompt("Enter task:");
             if (task) {
                 const taskListItem = document.createElement('div');
-                taskListItem.textContent = task;
+                const taskText = document.createElement('span');
+                const editButton = document.createElement('button');
+                const deleteButton = document.createElement('button');
+
+                taskText.textContent = task;
+                editButton.textContent = "Edit";
+                deleteButton.textContent = "Delete";
+
+                editButton.onclick = function() {
+                    const newTask = prompt("Edit task:", taskText.textContent);
+                    if (newTask) {
+                        taskText.textContent = newTask;
+                    }
+                };
+
+                deleteButton.onclick = function() {
+                    taskListItem.remove();
+                };
+
                 taskListItem.className = 'task-list-item';
+                taskListItem.appendChild(taskText);
+                taskListItem.appendChild(editButton);
+                taskListItem.appendChild(deleteButton);
+
                 taskList.appendChild(taskListItem);
             }
         }
