@@ -5,7 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timer Settings</title>
     <style>
-        /* Styles as before */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 50px;
+        }
+        form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column; /* Arrange elements vertically */
+            align-items: center; /* Center-align form elements */
+        }
+        label {
+            margin-bottom: 10px;
+        }
+        input[type="number"] {
+            padding: 5px;
+            margin-bottom: 20px;
+            width: 100px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -41,13 +66,13 @@
             localStorage.setItem('shortBreakDuration', shortBreakDurationInput.value);
             localStorage.setItem('longBreakDuration', longBreakDurationInput.value);
             alert('Settings saved successfully!');
+            window.location.href = 'clock.html'; // Redirect to clock page after saving settings
         }
 
         // Event listener to save settings on form submission
         document.getElementById('settingsForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent form submission
-            saveSettings(); // Call function to save settings
-            window.location.href = 'clock.html'; // Redirect to timer page after saving settings
+            saveSettings(); // Call function to save settings and redirect
         });
     </script>
 </body>
