@@ -87,6 +87,19 @@
                     clearInterval(timerInterval);
                     return;
                 }
+
+                if (minutes === 0 && seconds === 60) {
+                    showNotification("Work period about to begin. Get ready!");
+                }
+
+                if (minutes === 0 && seconds === 1) {
+                    showNotification("Short break about to begin. Get ready!");
+                }
+
+                if (minutes === 0 && seconds === 1) {
+                    showNotification("Long break about to begin. Get ready!");
+                }
+
                 if (seconds === 0) {
                     minutes--;
                     seconds = 59;
@@ -167,11 +180,28 @@
             }
         });
         updateTimerDisplay();
+
+        // Function to display notification
+        function showNotification(message) {
+            // Check if the browser supports notifications
+            if (!("Notification" in window)) {
+                alert('This browser does not support desktop notification');
+            }
+            // Check if permission to display notifications has been granted
+            else if (Notification.permission === "granted") {
+                // If granted, display the notification
+                new Notification(message);
+            }
+            // If permission has not been granted, ask the user for permission
+            else if (Notification.permission !== 'denied') {
+                Notification.requestPermission().then(function (permission) {
+                    // If permission is granted, display the notification
+                    if (permission === "granted") {
+                        new Notification(message);
+                    }
+                });
+            }
+        }
     </script>
 </body>
 </html>
-
-
-    
-
-    
