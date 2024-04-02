@@ -11,21 +11,26 @@
 <body>
     <h1>Timer Settings</h1>
     <form id="settingsForm">
-        <!-- Form fields as before -->
+        <label for="workDuration">Work Duration (minutes)</label>
+        <input type="number" id="workDuration" name="workDuration" min="1">
+        <label for="shortBreakDuration">Short Break Duration (minutes)</label>
+        <input type="number" id="shortBreakDuration" name="shortBreakDuration" min="1">
+        <label for="longBreakDuration">Long Break Duration (minutes)</label>
+        <input type="number" id="longBreakDuration" name="longBreakDuration" min="1">
+        <button type="submit">Save</button>
     </form>
 
     <script>
-        const settingsForm = document.getElementById('settingsForm');
+        // Retrieve existing settings from local storage
         const workDurationInput = document.getElementById('workDuration');
         const shortBreakDurationInput = document.getElementById('shortBreakDuration');
         const longBreakDurationInput = document.getElementById('longBreakDuration');
 
-        // Retrieve existing settings from local storage
         const savedWorkDuration = localStorage.getItem('workDuration');
         const savedShortBreakDuration = localStorage.getItem('shortBreakDuration');
         const savedLongBreakDuration = localStorage.getItem('longBreakDuration');
 
-        // Set default values if no saved settings found
+        // Set input values to saved settings or default values
         workDurationInput.value = savedWorkDuration || 25;
         shortBreakDurationInput.value = savedShortBreakDuration || 5;
         longBreakDurationInput.value = savedLongBreakDuration || 30;
@@ -35,14 +40,14 @@
             localStorage.setItem('workDuration', workDurationInput.value);
             localStorage.setItem('shortBreakDuration', shortBreakDurationInput.value);
             localStorage.setItem('longBreakDuration', longBreakDurationInput.value);
-            alert('Settings saved successfully! Redirecting to timer...');
-            window.location.href = 'clock.html'; // Redirect to timer page after saving settings
+            alert('Settings saved successfully!');
         }
 
         // Event listener to save settings on form submission
-        settingsForm.addEventListener('submit', function(event) {
+        document.getElementById('settingsForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent form submission
             saveSettings(); // Call function to save settings
+            window.location.href = 'clock.html'; // Redirect to timer page after saving settings
         });
     </script>
 </body>
