@@ -8,6 +8,18 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
+            background-image: url('background.jpg'); /* Add the path to your background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .container {
+            padding-top: 50px;
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+            border-radius: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Shadow effect */
         }
         .timer {
             font-size: 36px;
@@ -19,7 +31,6 @@
         .task-list {
             margin-top: 20px;
             text-align: left;
-            max-width: 400px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -50,20 +61,22 @@
     </style>
 </head>
 <body>
-    <h1>Pomodoro Timer with Tasks</h1>
-    <button id="settingsButton">Settings</button>
-    <div class="timer" id="timer">25:00</div>
-    <div class="task-input">
-        <input type="text" id="taskInput" placeholder="Enter task...">
-        <button id="addTaskButton">Add Task</button>
-    </div>
-    <div class="buttons">
-        <button id="startButton">Start</button>
-        <button id="stopButton">Stop</button>
-        <button id="resetButton">Reset</button>
-    </div>
-    <div class="task-list" id="taskList">
-        <!-- Task list will be displayed here -->
+    <div class="container">
+        <h1>Pomodoro Timer with Tasks</h1>
+        <button id="settingsButton">Settings</button>
+        <div class="timer" id="timer">25:00</div>
+        <div class="task-input">
+            <input type="text" id="taskInput" placeholder="Enter task...">
+            <button id="addTaskButton">Add Task</button>
+        </div>
+        <div class="buttons">
+            <button id="startButton">Start</button>
+            <button id="stopButton">Stop</button>
+            <button id="resetButton">Reset</button>
+        </div>
+        <div class="task-list" id="taskList">
+            <!-- Task list will be displayed here -->
+        </div>
     </div>
 
     <script>
